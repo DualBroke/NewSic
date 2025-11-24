@@ -43,7 +43,7 @@ body {
 
 /*아티스트 사진 크기*/
 .artist_photo {
-    width: 200px;
+    width: 300px; /* 여기 200 -> 300으로 바꿈, 안그럼 사진이 짤림 */ 
     height: 200px;
     flex-shrink: 0; /*flex item 크기가 줄어들지 않도록 보호*/
     overflow: hidden; /* 이미지가 넘치는 부분 자르기 */
@@ -117,4 +117,8 @@ body {
 
 .song_info {
     flex-grow: 1; /*앨범 사진 제외 남은 공간 텍스트가 채우도록 함*/
+}
+
+.member_list li {
+    width: 500px; /* 멤버 소개 다음줄로 넘어가서 추가함 */
 }
