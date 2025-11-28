@@ -3,16 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock 1</title>
-    <link rel="stylesheet" href="Rock.css">
+    <title>장르 소개 페이지</title>
+    <style>
+        /* 1. 전체 화면 설정 */
+        body {
+            background-color: #f5f7fa; /*배경 색*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #333;
+        }
+
+        /* 2. 메인 컨테이너  */
+        .container {
+            background-color: #ffffff;
+            width: 700px;
+            padding: 60px;
+            text-align: center;
+            border-radius: 20px; /*모서리 둥글게*/
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /*모서리 그림자 효과*/
+        }
+
+        /* 3. 장르명 및 소개글 */
+        .genre-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .genre-desc {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 60px; /* 아티스트 목록과 간격 벌림 */
+            white-space: pre-line; /* div 안에서도 엔터가 먹히는 기능!*/
+        }
+
+        /* 4. 아티스트 목록 (2열 격자 배치) */
+        .artist-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 1:1 비율 2개 */
+            column-gap: 30px; /* 좌우 간격 */
+            row-gap: 40px;    /* 위아래 간격 */
+        }
+
+        /* 5. 개별 아티스트 항목 (사진 + 이름) */
+        .artist-item {
+            display: flex;       
+            align-items: center; 
+            gap: 15px;           
+        }
+
+        /* ★ 핵심: 아티스트 이미지 스타일 */
+        .artist-img {
+            width: 80px;        /* 사진 너비 고정 */
+            height: 80px;       /* 사진 높이 고정 */
+            object-fit: cover;  /* 사진이 찌그러지지 않고 꽉 차게 조절 */
+            border-radius: 10px; /* 모서리를 살짝 둥글게 (선택사항) */
+            background-color: #eee; /* 이미지가 없을 때 회색 배경 보임 */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 살짝 그림자 (선택사항) */
+        }
+
+        /* 6. 이름 링크 스타일 */
+        .artist-name {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .artist-name:hover {
+            color: blue; 
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <div class="hero-section">
-        <div class="content">
-            <h1>Rock</h1>
-            <p>락 음악 아티스트의 다양한 음악들을 알아보세요.</p>
-            <button>전체 보기</button>
+
+    <div class="container">
+        <div class="header-section">
+            <div class="genre-title">Rock</div>
+            <div class="genre-desc">강렬한 전자 기타 사운드와 역동적인 드럼 비트를 특징으로 하는 대중음악입니다. 1950년대 로큰롤에서 시작해, 자유, 반항, 청춘의 에너지를 담아 끊임없이 분화하며 문화 전반에 큰 영향을 주었습니다. 락만이 줄 수 있는 짜릿함과 쾌감을 느껴보세요!
+            </div>
+        </div>
+
+        <div class="artist-list">
+            
+            <div class="artist-item">
+                <img src="images/Nell.png" alt="넬 사진" class="artist-img">
+                <a href="Rock2.html" class="artist-name">넬</a>
+            </div>
+
+            <div class="artist-item">
+                <img src="images/ThornApple.png" alt="쏜애플 사진" class="artist-img">
+                <a href="Rock3.html" class="artist-name">쏜애플</a>
+            </div>
+
+            <div class="artist-item">
+                <img src="images/LeeSeungyoon.png" alt="이승윤 사진" class="artist-img">
+                <a href="Rock4.html" class="artist-name">이승윤</a>
+            </div>
+
+            <div class="artist-item">
+                <img src="images/YB.png" alt="YB 사진" class="artist-img">
+                <a href="Rock5.html" class="artist-name">윤도현밴드</a>
+            </div>
+
         </div>
     </div>
+
 </body>
 </html>
