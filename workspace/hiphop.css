@@ -1,0 +1,486 @@
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: auto;
+    /* 입자가 body를 벗어나지 않도록 */
+    position: relative;
+    /*가상 요소의 기준점이 되도록 설정*/
+    padding-top: 200px; /*nav와 rcommand 사이 간격*/
+    box-sizing: border-box;
+}
+
+/* 배경 이미지를 위한 가상 요소 추가 */
+body::before {
+    content: "";
+    background-image: url('images/background.jpg');
+    /* 이미지 파일 경로 */
+    background-size: cover;
+    /* 화면을 꽉 채우도록 */
+    background-position: center;
+    /* 중앙 정렬 */
+    background-repeat: no-repeat;
+    /* 반복 없음 */
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    /* 불투명도 설정 (0.0 완전 투명 ~ 1.0 완전 불투명) */
+    /* '살짝' 불투명하게 하기 위해 0.3 정도로 설정했습니다. 원하는 만큼 조절하세요. */
+    opacity: 0.8;
+
+    /* 콘텐츠보다 뒤에 오도록 설정 */
+    z-index: -1;
+}
+
+/* ===== 스크롤바 숨기기 ===== */
+/* 웹킷 브라우저 (Chrome, Safari, Edge) */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Firefox */
+body {
+    scrollbar-width: none;
+}
+
+/* IE and Edge 구버전 */
+body {
+    -ms-overflow-style: none;
+}
+
+/* ===== Navigation Bar (z-index: 100) ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 2px 15px rgba(31, 38, 135, 0.15);
+    z-index: 100;
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #222222;
+    letter-spacing: 0.05em;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #4a4a4a;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+    padding: 5px 10px;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #171717;
+}
+
+/*전체 구조*/
+.recommand_page {
+    /*수직분할 (아티스트/곡)*/
+    display: flex;
+    flex-direction: column;
+    /*크기 설정*/
+    max-width: 1400px;
+    /* 기존 1000*/
+    width: 90%;
+    border-radius: 10px;
+    /* 모서리 둥글게 */
+    padding: 70px;
+    margin: 0;
+
+    /*---유리 효과---*/
+
+    /* 1. 배경색: 흰색인데 투명도를 0.6(60%)정도로 줌*/
+    background-color: rgba(255, 255, 255, 0.6);
+    /* 2. 블러 효과: 뒤에 있는 배경을 흐리게 만듦(유리 너머로 보는 느낌)*/
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    /* 3. 테두리: 유리의 단면처럼 은은한 흰색 테두리*/
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    /* 4. 그림지: 붕 떠있는 느낌을 줘서 입체감 살림*/
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    /*모서리 둥글게*/
+    border-radius: 20px;
+    z-index: 2;
+}
+
+/*타이틀*/
+.main_title {
+    font-size: 6em;
+    /* 기존 3.5*/
+    /* 제목 크기 키우기 */
+    margin-top: 0;
+    margin-bottom: 60px;
+    /*추가*/
+    color: black;
+    text-align: center;
+}
+
+.main_title a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    transition: transform 0.3s ease, text-shawdow 0.3s ease;
+}
+
+.main_title a:hover {
+    /* 1. 위로 10px 살짝 올라가게 + 크기 1.05배 확대 */
+    transform: translateY(-10px) scale(1.05);
+    /* 2. 바닥에 그림자가 생겨서 진짜 떠있는 느낌 주기 */
+    text-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.artist_section {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    /*아티스트 사진, 텍스트 간격*/
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
+    /*recommand_page의 패딩과 중복 막음*/
+    margin-bottom: 40px;
+    /*songs_section과 띄우기*/
+}
+
+/*아티스트 사진 크기*/
+.artist_photo {
+    width: 350px;
+    /*기존 200px*/
+    height: 350px;
+    flex-shrink: 0;
+    /*flex item 크기가 줄어들지 않도록 보호*/
+    overflow: hidden;
+    /* 이미지가 넘치는 부분 자르기 */
+    border-radius: 20px;
+}
+
+.artist_photo:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.artist_photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info_text {
+    margin-bottom: 0;
+}
+
+.member_list {
+    margin-top: 0;
+}
+
+/*아티스트 소개*/
+.artist_info {
+    flex-grow: 1;
+    /*아티스트 사진 제외 남은 공간 텍스트가 채우도록 함*/
+}
+
+.artist_info a {
+    color: inherit;
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.artist_info a:hover {
+    color: #f94141;
+    text-decoration: none;
+}
+
+.artist_info h4 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    white-space: nowrap;
+}
+
+.artist_info p {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    font-weight: bold;
+}
+
+
+.songs_section {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    /*2열*/
+    margin-top: 40px;
+    /*artist_section과 띄우기*/
+    column-gap: 60px;
+    /*좌우 간격*/
+    row-gap: 90px;
+    /*위아래 간격*/
+
+    margin-left: auto;
+    margin-right: auto;
+
+    /* 이 Grid의 최대 너비를 설정하여 중앙 정렬할 여백을 만듭니다. */
+    max-width: 1200px;
+    /*기존 950*/
+    width: 100%;
+}
+
+.song_item {
+    width: auto;
+    height: auto;
+    align-items: flex-start;
+    flex-shrink: 0;
+    /*flex item 크기가 줄어들지 않도록 보호*/
+    overflow: visible;
+
+    display: flex;
+    gap: 15px;
+}
+
+.song_photo {
+    width: 180px;
+    /*기존 100*/
+    /* 이미지 고정 크기 */
+    height: 180px;
+    overflow: hidden;
+    /* 이미지가 넘치는 부분 자르기 */
+    flex-shrink: 0;
+    /* 텍스트가 길어도 이미지 크기가 줄어들지 않도록 보호 */
+    border-radius: 50%;
+    /* LP판처럼 원형으로 만들려면 추가 */
+}
+
+.song_item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /* 텍스트가 길어져도 이미지가 작아지지 않도록 보호 */
+    flex-shrink: 0;
+}
+
+.song_info {
+    flex-grow: 1;
+    /*앨범 사진 제외 남은 공간 텍스트가 채우도록 함*/
+    display: flex;
+    flex-direction: column;
+    /* 세로로 정렬 */
+    justify-content: center;
+    /* 세로 중앙 정렬 */
+    gap: 4px;
+}
+
+/*제목 스타일*/
+.song_title {
+    margin: 0;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    font-weight: bold;
+    word-break: break-word;
+    /* 긴 단어를 강제로 줄바꿈 */
+    overflow-wrap: break-word;
+    /* 단어가 너무 길면 줄바꿈 */
+}
+
+/* 발매일 등 메타정보 스타일 */
+.song_meta {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 900;
+    white-space: nowrap;
+    margin-bottom: 10px;
+}
+
+/* 곡 소개 스타일 */
+.song_desc {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    font-weight: 900;
+    line-height: 1.4;
+    /* 줄 간격(글이 두 줄 될 떄 보기좋게)*/
+    white-space: pre-line;
+}
+
+.song_title a {
+    /* 1. 글자 기본 설정 */
+    position: relative;
+    /* 배경 위치의 기준점 */
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    z-index: 1;
+    /* 배경보다 글자가 위에 오도록 순서 지정 */
+    display: inline-block;
+    max-width: 100%;
+
+    /* 긴 텍스트 줄바꿈 */
+    word-break: break-word;
+    overflow-wrap: break-word;
+
+    /* 글자 색상만 부드럽게 바뀌도록 설정 */
+    transition: color 0.3s ease;
+}
+
+/* 2. 배경이 될 가짜 상자 만들기 (::before) */
+.song_title a::before {
+    content: "";
+    position: absolute;
+    /* 글자 위치에 영향 안 주고 둥둥 떠있게 함 */
+    z-index: -1;
+    /* 글자 뒤로 숨기기 */
+
+    /* 상자 크기를 글자보다 크게 설정 (여백 역할) */
+    top: -6px;
+    /* 위로 6px 확장 */
+    bottom: -6px;
+    /* 아래로 6px 확장 */
+    left: -15px;
+    /* 왼쪽으로 15px 확장 */
+    right: -15px;
+    /* 오른쪽으로 15px 확장 */
+
+    /* 모양 및 색상 설정 */
+    border-radius: 30px;
+    background-color: transparent;
+    /* 평소엔 투명 */
+
+    /* 부드러운 움직임 */
+    transition: all 0.3s ease;
+}
+
+/* 3. 마우스 올렸을 때 효과 */
+.song_title a:hover {
+    color: white;
+    /* 글자는 흰색으로 */
+}
+
+.song_title a:hover::before {
+    background-color: black;
+    /* 배경은 검정색으로 */
+
+    /* 뿅! 하고 커지는 효과 (배경만 커짐) */
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== 다른 아티스트 섹션 ===== */
+.other-artists-section {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 2px solid black;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.other-artists-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    color: rgba(255, 255, 255, 0.4);
+    gap: 25px;
+}
+
+.other-artist-card {
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.other-artist-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px #515366;
+    border-color: #515366;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.other-artist-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+}
+
+
+
+.other-artist-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: black;
+    text-align: center;
+}
+
+/* LP판 회전 애니메이션 정의 */
+@keyframes spinRecord {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 자바스크립트가 이 클래스를 붙이면 회전 시작 */
+.spinning {
+    animation: spinRecord 3s linear infinite;
+    /* 3초에 한 바퀴, 무한 반복 */
+    border-radius: 50%;
+    /* 이미지를 원형으로 만듦 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* 약간의 그림자 효과 */
+}
+
+/* 이미지 전환을 부드럽게 */
+.song_photo img {
+    transition: border-radius 0.5s ease;
+    cursor: pointer;
+    /* 마우스를 올리면 손가락 모양으로 변경 */
+}

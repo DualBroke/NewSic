@@ -1,0 +1,303 @@
+/* ===== Reset & Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', -apple-system, sans-serif;
+    background: linear-gradient(135deg, #ffeef8 0%, #ffe4f0 50%, #ffd9e8 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px 40px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ===== 블러 배경 이미지 (z-index: -2) ===== */
+.background-div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("./images/hip.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(0.8px);
+    z-index: -2;
+    opacity: 0.8;
+}
+
+/* ===== Navigation Bar (z-index: 100) ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 2px 15px rgba(31, 38, 135, 0.15);
+    z-index: 100;
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #222222;
+    letter-spacing: 0.05em;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #4a4a4a;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+    padding: 5px 10px;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #171717;
+}
+
+/* ===== 메인 컨테이너 (z-index: 2) ===== */
+.container {
+    background-color: rgba(255, 255, 255, 0.6);
+    /* 배경색: 흰색인데 투명도 60% */
+    backdrop-filter: blur(8px);
+    /*블러효과(유리 너머로 보는 느낌)*/
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 04);
+    /*유리 단면처럼 은은한 흰색 테두리*/
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    max-width: 900px;
+    width: 100%;
+    padding: 60px 50px;
+    text-align: center;
+    border-radius: 20px;
+    position: relative;
+    opacity: 0.;
+    z-index: 2;
+}
+
+/* ===== 헤더 섹션 ===== */
+.header-section {
+    margin-bottom: 50px;
+}
+
+.genre-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #222222;
+    letter-spacing: 0.05em;
+}
+
+.genre-desc {
+    font-size: 500;
+    color: #333333;
+    line-height: 1.8;
+    white-space: pre-line;
+    font-weight: bold;
+}
+
+/* ===== 아티스트 리스트 (2열 그리드) ===== */
+.artist-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+/* ===== 아티스트 카드 (박스 형태) ===== */
+.artist-card {
+    background: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.08);
+}
+
+.artist-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px #515366;
+    border-color: #515366;
+}
+
+/* 아티스트 이미지 */
+.artist-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.artist-card:hover .artist-img {
+    transform: scale(1.05);
+    border-color: #515366;
+}
+
+/* 아티스트 정보 */
+.artist-info {
+    text-align: center;
+    width: 100%;
+}
+
+.artist-name {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 10px;
+    transition: color 0.2s ease;
+}
+
+.artist-name:hover {
+    color: #515366;
+}
+
+.artist-desc {
+    font-size: 0.9rem;
+    color: #222222;
+    line-height: 1.6;
+    margin: 0;
+    white-space: pre-line;
+}
+
+/* ===== 반응형 디자인 ===== */
+@media (max-width: 768px) {
+    .nav-content {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    body {
+        padding: 140px 20px 40px;
+    }
+
+    .container {
+        padding: 40px 30px;
+    }
+
+    .genre-title {
+        font-size: 2.5rem;
+    }
+
+    .artist-list {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .artist-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-menu {
+        gap: 10px;
+    }
+
+    .nav-menu a {
+        font-size: 0.9rem;
+        padding: 5px 8px;
+    }
+
+    .genre-title {
+        font-size: 2rem;
+    }
+
+    .genre-desc {
+        font-size: 0.95rem;
+    }
+
+    .container {
+        padding: 30px 20px;
+    }
+}
+
+/* ===== 별똥별 효과 ===== */
+.stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* 반짝이는 작은 별들 */
+.twinkle-star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.6);
+    animation: twinkle 2s ease-in-out infinite;
+}
+
+.twinkle-star:nth-child(even) {
+    animation-delay: 1s;
+    animation-duration: 2.5s;
+}
+
+.twinkle-star:nth-child(3n) {
+    animation-delay: 0.5s;
+    animation-duration: 3s;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}

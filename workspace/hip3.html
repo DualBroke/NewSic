@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Don Toliver</title>
+    <link rel="stylesheet" href="hiphop.css">
+</head>
+
+<body>
+    <!-- <a href="hip1.html" class="home_btn">
+        Hip-Hop
+    </a>
+    <div class="top_right_btn">
+        <a href="hip2.html">Travis Scott</a>
+        <a href="hip4.html">Drake</a>
+        <a href="hip5.html">Kendrick Lamar</a>
+    </div> -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <h1 class="nav-logo">NewSic</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="#">J-POP</a></li>
+                <li><a href="#">Rock</a></li>
+                <li><a href="hip1.html" class="active">Hip Hop</a></li>
+                <li><a href="../dance.html">Dance</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="recommand_page">
+        <h1 class="main_title">
+            <a href="https://www.dontolivermusic.com/" target="_blank">
+               Don Toliver 
+            </a>
+        </h1>
+        <section class="artist_section">
+            <div class="artist_photo">
+                <img src="images/don_toliver.jpg" alt="don_toliver photo">
+            </div>
+
+            <div class="artist_info">
+                <h4>Caleb Zackery Toliver</h4>
+                <p>국적: 🇺🇸미국 텍사스 휴스턴<br>
+                    출생: 1994년 6월 12일<br>
+                    레이블: Cactus Jack Records<br>
+                    <a href="https://www.atlanticrecords.com/" target="_blank">애틀랜틱 레코드</a><br>
+                    데뷔: 2018년
+                </p>
+            </div>
+        </section>
+
+
+        <section class="songs_section">
+            <div class="song_item">
+                <div class="song_photo">
+                    <img src="images/7.png" alt="no idea_image">
+                </div>
+                <div class="song_info">
+                    <h3 class="song_title">
+                        <a href="https://youtu.be/_r-nPqWGG6c?si=AO8Z6BdJrHXGbR7J" target="_blank">
+                            No Idea
+                        </a>
+                    </h3>
+                    <p class="song_meta">Heaven Or Hell, 2020년 발매</p>
+                    <p class="song_desc">반복되는 멜로디 훅이 귀에 감기는 
+                        중독적인 사운드가 특징이다.</p>
+                </div>
+            </div>
+
+
+            <div class="song_item">
+                <div class="song_photo">
+                    <img src="images/8.png" alt="you_image">
+                </div>
+                <div class="song_info">
+                    <h3 class="song_title">
+                        <a href="https://youtu.be/aKoPsWBw3RY?si=QL_FEHVQozfr3ikE" target="_blank">
+                            You (feat. Travis Scott)
+                        </a>
+                    </h3>
+                    <p class="song_meta">Life of a DON, 2021년 발매</p>
+                    <p class="song_desc">부드러운 보컬 라인 위에 그루비한 멜로디,
+                        스캇의 피처링이 시너지를 내는 곡이다.</p>
+                </div>
+            </div>
+
+
+            <div class="song_item">
+                <div class="song_photo">
+                    <img src="images/5.png" alt="no pole_image">
+                </div>
+                <div class="song_info">
+                    <h3 class="song_title">
+                        <a href="https://youtu.be/A5mURRozXtg?si=jsWEZS8M1ExUzIIU" target="_blank">
+                            No Pole
+                        </a>
+                    </h3>
+                    <p class="song_meta">Love Sick, 2023년 발매</p>
+                    <p class="song_desc">강렬한 베이스와 몽환적인 신스가 어우러진
+                        사이키델릭 트랩 사운드가 인상적이다.</p>
+                </div>
+            </div>
+
+
+            <div class="song_item">
+                <div class="song_photo">
+                    <img src="images/6.png" alt="5_image">
+                </div>
+                <div class="song_info">
+                    <h3 class="song_title">
+                        <a href="https://youtu.be/Er6SiVOH9EM?si=IKZd8XM7ex472DsC" target="_blank">
+                            5 to 10
+                        </a>
+                    </h3>
+                    <p class="song_meta">HARDSTONE PSYCHO, 2024년 발매</p>
+                    <p class="song_desc">레이드백한 보컬과 하드한 808 드럼이
+                        대비를 이루는 현대적인 힙합 트랙이다.</p>
+                </div>
+            </div>
+        </section>
+        <!-- 다른 아티스트 보기 -->
+        <section class="other-artists-section">
+            <h2 class="section-title">다른 아티스트</h2>
+            <div class="other-artists-grid">
+                <a href="hip2.html" class="other-artist-card">
+                    <img src="images/travis_scott.jpg" alt="Travis Scott" class="other-artist-img">
+                    <div class="other-artist-name">Travis Scott</div>
+                </a>
+                <a href="hip4.html" class="other-artist-card">
+                    <img src="images/drake.jpg" alt="drake" class="other-artist-img">
+                    <div class="other-artist-name">Drake</div>
+                </a>
+                <a href="hip5.html" class="other-artist-card">
+                    <img src="images/kendrick.jpg" alt="Kendrick" class="other-artist-img">
+                    <div class="other-artist-name">Kendrick Lamar</div>
+                </a>
+            </div>
+        </section>
+    </div>
+<script>
+        // 모든 노래 이미지 선택
+        const songImages = document.querySelectorAll('.song_photo img');
+        
+        // 현재 재생 중인 오디오를 담을 변수 (초기값은 없음)
+        let currentAudio = null;
+        // 현재 회전 중인 이미지를 담을 변수
+        let currentImg = null;
+
+        songImages.forEach(img => {
+            img.addEventListener('click', function() {
+                const src = this.getAttribute('src');
+                
+                const fileName = src.substring(src.lastIndexOf('/') + 1, src.lastIndexOf('.'));
+
+                if (currentAudio) {
+                    currentAudio.pause(); // 노래 정지
+                    currentAudio.currentTime = 0; // 노래 시작점으로
+                    if(currentImg) currentImg.classList.remove('spinning'); // 회전 클래스 제거
+                }
+
+                // (일시정지 기능)
+                // 단순히 멈추기만 하고 함수 종료
+                if (currentImg === this) {
+                    currentImg = null;
+                    currentAudio = null;
+                    return;
+                }
+
+                // 경로: ./audio/파일명.mp3
+                // 주의: mp3 파일은 audio 폴더 안에 있어야 함
+                currentAudio = new Audio('./audio/' + fileName + '.mp3');
+                
+                // 노래 재생
+                currentAudio.play();
+                
+                // 이미지 회전 효과 시작
+                this.classList.add('spinning');
+                currentImg = this;
+
+                // 노래가 끝나면 자동으로 회전 멈추기
+                currentAudio.addEventListener('ended', () => {
+                    this.classList.remove('spinning');
+                    currentImg = null;
+                    currentAudio = null;
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

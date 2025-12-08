@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Travis Scott</title>
+    <link rel="stylesheet" href="hiphop.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <h1 class="nav-logo">NewSic</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="#">J-POP</a></li>
+                <li><a href="#">Rock</a></li>
+                <li><a href="hip1.html" class="active">Hip Hop</a></li>
+                <li><a href="../dance.html">Dance</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="recommand_page">
+        <h1 class="main_title">
+            <a href="https://www.travisscott.com/" target="_blank>">
+                Travis Scott
+            </a>
+        </h1>
+        <section class="artist_section">
+            <div class="artist_photo">
+                <img src="images/travis_scott.jpg" alt="travis photo">
+            </div>
+
+            <div class="artist_info">
+                <h4>Jacques Bermon Webster II</h4>
+                <p>국적: 🇺🇸미국 텍사스 휴스턴<br>
+                    출생: 1991년 4월 30일<br>
+                    레이블: Cactus Jack Records<br>
+                    데뷔: 2013년
+                </p>
+            </div>
+        </section>
+
+
+        <section class="songs_section">
+            <div class="song_item">
+                <div class="song_photo">
+                    <img src="images/2.png" alt="90210_image">
+                </div>
+                <div class="song_info">
+                    <h3 class="song_title">
+                        <a href="https://youtu.be/BuNBLjJzRoo?si=KeY590B-FXvp3jQl" target="_blank">
+                            90210 (feat. Kacy Hill)
+                        </a>
+                    </h3>
+                    <p class="song_meta">Rodeo, 2015년 발매</p>
+                    <p class="song_desc">몽환적인 보컬과 압도적인 비트 변환이
+                        인상깊은 곡이다. 제목 90210은
+                        미국의 베벌리힐스의 우편번호다.</p>
+                </div>
+            </div>
+
+
+            <div class="song_item">
+                <div class="song_photo">
+                    <img src="images/1.png" alt="sdp_image">
+                </div>
+                <div class="song_info">
+                    <h3 class="song_title">
+                        <a href="https://youtu.be/yQORL_z-UsA?si=8DLtODaV7OSB-GEZ" target="_blank">
+                            sdp interlude
+                        </a>
+                    </h3>
+                    <p class="song_meta">Birds In The Trap Sing McKnight<br>
+                        2016년 발매</p>
+                    <p class="song_desc">반복적인 가사와 백그라운드
+                        보컬의 목소리가 기억에 남는 곡이다.</p>
+                </div>
+            </div>
+
+
+            <div class="song_item">
+                <div class="song_photo">
+                    <img src="images/3.png" alt="i know_image">
+                </div>
+                <div class="song_info">
+                    <h3 class="song_title">
+                        <a href="https://youtu.be/X7aF3nZOS98?si=mDObYsFt4FZL26hf" target="_blank">
+                            I KNOW?
+                        </a>
+                    </h3>
+                    <p class="song_meta">UTOPIA, 2023년 발매</p>
+                    <p class="song_desc">부드럽게 흐르는 신스와 몽환적인
+                        분위기가 매력적이다.</p>
+                </div>
+            </div>
+
+
+            <div class="song_item">
+                <div class="song_photo">
+                    <img src="images/4.png" alt="dumbo_image">
+                </div>
+                <div class="song_info">
+                    <h3 class="song_title">
+                        <a href="https://youtu.be/8G8Fn0YRjvM?si=scHa_gk0OqqmDYZq" target="_blank">
+                            DUMBO
+                        </a>
+                    </h3>
+                    <p class="song_meta">JACKBOYS 2, 2025년 발매</p>
+                    <p class="song_desc">묵직한 베이스 라인과 공간감 있는
+                        멜로디가 특징이다.</p>
+                </div>
+            </div>
+        </section>
+        <!-- 다른 아티스트 보기 -->
+        <section class="other-artists-section">
+            <h2 class="section-title">다른 아티스트</h2>
+            <div class="other-artists-grid">
+                <a href="hip3.html" class="other-artist-card">
+                    <img src="images/don_toliver.jpg" alt="don_toliver" class="other-artist-img">
+                    <div class="other-artist-name">Don Toliver</div>
+                </a>
+                <a href="hip4.html" class="other-artist-card">
+                    <img src="images/drake.jpg" alt="drake" class="other-artist-img">
+                    <div class="other-artist-name">Drake</div>
+                </a>
+                <a href="hip5.html" class="other-artist-card">
+                    <img src="images/kendrick.jpg" alt="Kendrick" class="other-artist-img">
+                    <div class="other-artist-name">Kendrick Lamar</div>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    </div>
+
+    <script>
+        // 모든 노래 이미지 선택
+        const songImages = document.querySelectorAll('.song_photo img');
+
+        // 현재 재생 중인 오디오를 담을 변수 (초기값은 없음)
+        let currentAudio = null;
+        // 현재 회전 중인 이미지를 담을 변수
+        let currentImg = null;
+
+        songImages.forEach(img => {
+            img.addEventListener('click', function () {
+                const src = this.getAttribute('src');
+
+                const fileName = src.substring(src.lastIndexOf('/') + 1, src.lastIndexOf('.'));
+
+                if (currentAudio) {
+                    currentAudio.pause(); // 노래 정지
+                    currentAudio.currentTime = 0; // 노래 시작점으로
+                    if (currentImg) currentImg.classList.remove('spinning'); // 회전 클래스 제거
+                }
+
+                // (일시정지 기능)
+                // 단순히 멈추기만 하고 함수 종료
+                if (currentImg === this) {
+                    currentImg = null;
+                    currentAudio = null;
+                    return;
+                }
+
+                // 경로: ./audio/파일명.mp3
+                // 주의: mp3 파일은 audio 폴더 안에 있어야 함
+                currentAudio = new Audio('./audio/' + fileName + '.mp3');
+
+                // 노래 재생
+                currentAudio.play();
+
+                // 이미지 회전 효과 시작
+                this.classList.add('spinning');
+                currentImg = this;
+
+                // 노래가 끝나면 자동으로 회전 멈추기
+                currentAudio.addEventListener('ended', () => {
+                    this.classList.remove('spinning');
+                    currentImg = null;
+                    currentAudio = null;
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
