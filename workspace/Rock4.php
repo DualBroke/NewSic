@@ -8,7 +8,7 @@
 <body>
     <nav class="navbar">
         <div class="nav-content">
-            <a href="index.php" class="nav-logo">NewSic</a>
+            <a href="Home.php" class="nav-logo">NewSic</a>
             <ul class="nav-menu">
                 <li><a href="Home.php">홈</a></li>
                 <li><a href="J-POP 1.php">J-POP</a></li>
