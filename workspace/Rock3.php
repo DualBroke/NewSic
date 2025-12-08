@@ -8,11 +8,11 @@
 <body>
     <nav class="navbar">
         <div class="nav-content">
-            <a href="index.html" class="nav-logo">NewSic</a>
+            <a href="index.php" class="nav-logo">NewSic</a>
             <ul class="nav-menu">
-                <li><a href="Home.html">홈</a></li>
-                <li><a href="J-POP 1.html">J-POP</a></li>
-                <li><a href="Rock1.html" class="active">Rock</a></li>
+                <li><a href="Home.php">홈</a></li>
+                <li><a href="J-POP 1.php">J-POP</a></li>
+                <li><a href="Rock1.php" class="active">Rock</a></li>
                 <li><a href="#">Hip Hop</a></li>
                 <li><a href="#">Dance</a></li>
             </ul>
@@ -20,11 +20,7 @@
     </nav>
     <div class="recommand_page">
         <div class="title_area">
-            <a href="index.html" class="nav_btn left_btn">🏠 홈으로</a>
-                
             <h1 class="main_title">쏜애플</h1>
-                
-            <a href="Rock1.html" class="nav_btn right_btn">Rock 페이지 👉</a>
         </div>
         
         <section class="artist_section">
@@ -38,6 +34,87 @@
             </div>
         </section>
 
+        <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "newsic"; 
+        $target_memNum = 2; 
+
+        // DB 연결
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // 연결 확인
+        if ($conn->connect_error) {
+            echo '<div class="db-error-msg">데이터베이스 연결에 실패했습니다: ' . $conn->connect_error . '</div>';
+            goto end_php_block;
+        }
+
+        $sql_info = "SELECT 유형, 이름, 데뷔년도, 소속사, `활동상태`, 국적, 장르, 대표곡 FROM singers WHERE memNum = ?";
+        $stmt_info = $conn->prepare($sql_info);
+        
+        $stmt_info->bind_param("i", $target_memNum);
+        $stmt_info->execute();
+        $result_info = $stmt_info->get_result();
+        $artist_info = $result_info->fetch_assoc();
+        $stmt_info->close();
+        
+        $has_data = ($artist_info !== null);
+        ?>
+
+        <section class="artist_detail_table">
+            <h2 class="section-title-small">밴드 상세 정보</h2>
+            <table class="info-table">
+                <tbody>
+                    <?php if ($has_data): ?>
+                    <tr>
+                        <th>유형</th>
+                        <td><?php echo htmlspecialchars($artist_info['유형']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>이름</th>
+                        <td><?php echo htmlspecialchars($artist_info['이름']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>데뷔 년도</th>
+                        <td><?php echo htmlspecialchars($artist_info['데뷔년도']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>소속사</th>
+                        <td><?php echo htmlspecialchars($artist_info['소속사']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>활동 상태</th>
+                        <td><?php echo htmlspecialchars($artist_info['활동상태']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>국적</th>
+                        <td><?php echo htmlspecialchars($artist_info['국적']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>장르</th>
+                        <td><?php echo htmlspecialchars($artist_info['장르']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>대표곡</th>
+                        <td><?php echo htmlspecialchars($artist_info['대표곡']); ?></td>
+                    </tr>
+                    <?php else: ?>
+                    <tr>
+                        <td colspan="2">memNum <?php{$target_memNum}?>번에 해당하는 아티스트 정보가 없습니다.</td>
+                    </tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+        </section>
+
+        <?php
+        // DB 연결 닫기
+        end_php_block:
+        if (isset($conn) && $conn->ping()) {
+            $conn->close();
+        }
+        ?>
 
         <section class="songs_section">
             <div class="song_item">
@@ -96,15 +173,15 @@
         <section class="other-artists-section">
             <h2 class="section-title">다른 아티스트</h2>
             <div class="other-artists-grid">
-                <a href="Rock2.html" class="other-artist-card">
+                <a href="Rock2.php" class="other-artist-card">
                     <img src="images/Nell.png" alt="넬" class="other-artist-img">
                     <div class="other-artist-name">넬</div>
                 </a>
-                <a href="Rock4.html" class="other-artist-card">
+                <a href="Rock4.php" class="other-artist-card">
                     <img src="images/LeeSeungyoon.png" alt="이승윤" class="other-artist-img">
                     <div class="other-artist-name">이승윤</div>
                 </a>
-                <a href="Rock5.html" class="other-artist-card">
+                <a href="Rock5.php" class="other-artist-card">
                     <img src="images/YB.png" alt="윤도현밴드" class="other-artist-img">
                     <div class="other-artist-name">윤도현밴드</div>
                 </a>

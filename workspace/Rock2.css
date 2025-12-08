@@ -1,0 +1,562 @@
+/* ===== Reset & Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', -apple-system, sans-serif;
+    /* Rock2.css: 록 페스티벌 테마 배경 (다크 레드 그라데이션 및 이미지) */
+    background-color: #1a0000;
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("https://images.unsplash.com/photo-1501612780327-45045538702b?w=1920&q=80");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff; /* 기본 텍스트 색상 흰색 */
+    
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 140px 20px 40px; /* 네비게이션바 고려하여 패딩 조정 */
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ===== 배경 이미지 (z-index: -2) - 록 테마 배경으로 사용 ===== */
+.background-div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 록 테마에 맞게 필터 조정 (블러는 유지하되 붉은 톤 추가) */
+    background-image: url("https://images.unsplash.com/photo-1501612780327-45045538702b?w=1920&q=80"); 
+    background-color: rgba(139, 0, 0, 0.3); /* 붉은색 오버레이 */
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px) brightness(0.8);
+    z-index: -2;
+}
+
+/* 벚꽃 관련 배경 및 애니메이션 제거: .cherry-blossom-bg, .falling-petals, .petal, @keyframes fall */
+
+
+/* ===== Navigation Bar (z-index: 100) - 록 테마에 맞게 수정 ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Rock2.css 톤을 유지하며 불투명도 조정 */
+    background: rgba(30, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #cc3333; /* 붉은 테두리 */
+    box-shadow: 0 5px 20px rgba(255, 51, 51, 0.3);
+    z-index: 100;
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #ff6666; /* 붉은색 로고 */
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    text-shadow: 0 0 5px rgba(255, 102, 102, 0.5);
+    transition: color 0.2s ease;
+}
+
+.nav-logo:hover {
+    color: #fff;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #e0e0e0; /* 밝은 회색 텍스트 */
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    padding: 5px 10px;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #fff;
+    background-color: #8b0000;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+/* ===== 메인 컨테이너 (z-index: 2) - Rock2.css 스타일 적용 ===== */
+.recommand_page {
+    display: flex;
+    flex-direction: column;
+    
+    /* Rock2.css 스타일 */
+    background: rgba(30, 0, 0, 0.85); 
+    backdrop-filter: blur(15px);
+    border: 1px solid #cc3333;
+    box-shadow: 0 0 30px rgba(204, 51, 51, 0.5); 
+    
+    max-width: 1000px;
+    width: 100%;
+    border-radius: 15px;
+    padding: 50px 40px;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== 타이틀 영역 (title_area) - Rock2.css의 nav_btn 스타일 추가 ===== */
+.title_area {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* 네비게이션 버튼 공통 스타일 (Rock2.css 기반) */
+.nav_btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    
+    /* 버튼 스타일: 록 테마 */
+    background-color: rgba(80, 0, 0, 0.9);
+    color: #ffe0e0;
+    border: 1px solid #cc3333;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav_btn:hover {
+    background-color: #ff6666;
+    color: white;
+    box-shadow: 0 0 20px #ff6666;
+    border-color: #ff6666;
+}
+
+.left_btn { left: 0; }
+.right_btn { right: 0; }
+
+
+.main_title {
+    font-size: 3.5em; /* Rock2.css 크기로 조정 */
+    font-weight: 900;
+    margin-top: 0;
+    margin-bottom: 40px;
+    
+    /* Rock2.css 텍스트 스타일 */
+    color: #fff;
+    font-style: italic;
+    text-shadow: 3px 3px 0 #8b0000, 0 0 25px #ff6666; 
+    
+    text-align: center;
+    letter-spacing: 0.05em;
+}
+
+/* ===== 아티스트 섹션 ===== */
+.artist_section {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
+    margin-bottom: 50px;
+}
+
+/* 아티스트 사진 크기 */
+.artist_photo {
+    width: 300px;
+    height: 200px;
+    flex-shrink: 0;
+    overflow: hidden;
+    
+    /* 록 테마 스타일 */
+    border-radius: 15px; 
+    border: 3px solid #ff6666;
+    box-shadow: 0 0 25px rgba(255, 102, 102, 0.6);
+    transition: transform 0.3s ease;
+}
+
+.artist_photo:hover {
+    transform: scale(1.02);
+    border-color: #ff9999;
+}
+
+.artist_photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 아티스트 소개 */
+.artist_info {
+    flex-grow: 1;
+}
+
+.artist_info p {
+    margin: 0;
+    color: #f0f0f0; /* Rock2.css 텍스트 색상 */
+    line-height: 1.8;
+}
+
+.artist_info h4 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #ff9999; /* 이름 색상 강조 */
+    text-shadow: 0 0 10px rgba(255, 153, 153, 0.5);
+}
+
+.info_text {
+    margin-bottom: 10px;
+}
+
+.member_list {
+    margin-top: 10px;
+    padding-left: 20px;
+    list-style: disc; /* 멤버 목록 리스트 스타일 복원 */
+}
+
+.member_list li {
+    width: 100%; /* 너비 조정 */
+    max-width: 500px;
+    margin-bottom: 8px;
+    color: #f0f0f0; /* Rock2.css 텍스트 색상 */
+    line-height: 1.6;
+}
+
+/* ===== 곡 섹션 ===== */
+.songs_section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 40px;
+    column-gap: 30px;
+    row-gap: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+    width: 100%;
+}
+
+.song_item {
+    width: auto;
+    height: auto;
+    align-items: flex-start;
+    flex-shrink: 0;
+    overflow: visible;
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    
+    /* Rock2.css 스타일 */
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.song_item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #ff6666;
+}
+
+
+.song_photo {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border-radius: 50%;
+    
+    /* Rock2.css 스타일 */
+    border: 3px solid #555;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+
+.song_photo:hover {
+    transform: scale(1.05);
+    border-color: #ff6666;
+}
+
+.song_item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.song_info {
+    flex-grow: 1;
+}
+
+/* 노래 제목 스타일 (Rock2.css) */
+.song_info b {
+    color: #ff6666;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.song-title-link {
+    color: #ff6666; /* Rock2.css 밝은 붉은색 */
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+
+.song-title-link:hover {
+    color: #fff; /* 호버 시 흰색 발광 */
+    text-shadow: 0 0 10px #ff6666;
+}
+
+.song_info p {
+    margin: 0;
+    color: #dddddd; /* Rock2.css 텍스트 색상 */
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+
+/* ===== 다른 아티스트 섹션 (스타일 병합) ===== */
+.other-artists-section {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 2px solid #8b0000; /* 록 테마 붉은 경계선 */
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ff6666; /* 록 테마 색상 */
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(255, 102, 102, 0.5);
+}
+
+.other-artists-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.other-artist-card {
+    /* 록 테마 스타일 */
+    background: rgba(255, 255, 255, 0.05); 
+    border: 2px solid #8b0000; 
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.other-artist-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 51, 51, 0.5);
+    border-color: #ff6666;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.other-artist-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #cc3333; /* 록 테마 색상 */
+    transition: all 0.3s ease;
+}
+
+.other-artist-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ff9999; /* 록 테마 색상 */
+    text-align: center;
+}
+
+
+/* ===== 반응형 디자인 (기존 벚꽃 테마 유지) ===== */
+@media (max-width: 768px) {
+    .nav-content {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    body {
+        padding: 140px 15px 30px;
+    }
+
+    .recommand_page {
+        padding: 40px 25px;
+    }
+
+    .main_title {
+        font-size: 2.5rem;
+    }
+
+    .artist_section {
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    .artist_photo {
+        width: 100%;
+        max-width: 400px;
+        height: 250px;
+    }
+
+    .songs_section {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .other-artists-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .member_list li {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .main_title {
+        font-size: 2rem;
+    }
+
+    .recommand_page {
+        padding: 30px 20px;
+    }
+
+    .song_item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .song_photo {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* ===== 앨범 회전 애니메이션 ===== */
+.song_photo.spinning {
+    /* Rock2.css 스타일 */
+    animation: spin 3s linear infinite;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 102, 102, 0.8);
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+.artist_detail_table {
+    margin: 40px auto 50px;
+    max-width: 650px; /* 테이블 너비 조정 */
+    width: 100%;
+}
+
+.section-title-small {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ff6666; /* 록 테마 붉은색 */
+    text-align: center;
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px rgba(255, 102, 102, 0.3);
+}
+
+/* 기본 정보 테이블 스타일 */
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.5); /* 어두운 배경 */
+    border: 1px solid #8b0000;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(255, 51, 51, 0.3);
+}
+
+.info-table th, .info-table td {
+    padding: 12px 20px;
+    text-align: left;
+    color: #f0f0f0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-table th {
+    width: 30%;
+    background-color: rgba(139, 0, 0, 0.6); /* 다크 레드 헤더 배경 */
+    font-weight: 700;
+    color: #ffe0e0;
+}
+
+.info-table td {
+    background-color: rgba(255, 255, 255, 0.05); /* 행 배경을 더 투명하게 */
+}
+
+.info-table tr:last-child th, .info-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* DB 연결 오류 메시지 스타일 */
+.db-error-msg {
+    color: #ff6666;
+    background: #1a0000;
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 800px;
+    border: 2px solid #ff6666;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
