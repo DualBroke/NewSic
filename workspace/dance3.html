@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dance3(빅뱅)</title>
+    <link rel="stylesheet" href="dance.css">
+</head>
+<body>
+    <!-- 블러 배경 이미지 (z-index: -2) -->
+    <div class="background-div"></div>
+
+    <!-- 휘날리는 컨페티 (z-index: 1) -->
+    <div class="falling-petals">
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <h1 class="nav-logo">NewSic</h1>
+            <ul class="nav-menu">
+                <li><a href="../index.html">홈</a></li>
+                <li><a href="#">J-POP</a></li>
+                <li><a href="#">Rock</a></li>
+                <li><a href="#">Hip Hop</a></li>
+                <li><a href="#" class="active">Dance</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="recommand_page">
+            <div class="main_title">빅뱅 Big Bang</div>
+            
+            <section class="artist_section">
+                <div class="artist_photo">
+                    <img src="./images/dance_artist2.png" alt="artist photo">
+                </div>
+
+                <div class="artist_info">
+                    <p>
+                        <strong>이름 : 빅뱅</strong><br>
+                        멤버 : G-Dragon, 태양, 대성, 탑 <br>
+                        국적 : 대한민국 <br><br>
+                        스타일리시하고 트렌디한 힙합/댄스 음악을 통해 K-팝의 글로벌 확장을 선도한 그룹
+                    </p>
+                </div>
+            </section>
+
+
+            <section class="songs_section">
+                <div class="song_item">
+                    <div class="song_photo">
+                        <img src="./images/5.png" alt="Song 1 Image">
+
+                        <audio class="song_audio">
+                            <source src="./audio/붉은노을.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div class="song_info">
+                        <p>
+                            <strong>붉은 노을</strong><br><br>
+                            가수 이문세의 <붉은 노을> 리메이크곡이지만, 빅뱅의 트렌디함으로 새롭게 소화한 곡.
+                            보컬 뿐 아니라 랩 부분까지 중독성이 강하고, 그만큼 가사를 보지 않고도 많은 사람들이 따라부를 정도의 많은 인기를 얻었다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="song_item">
+                    <div class="song_photo">
+                        <img src="./images/6.png" alt="Song 2 Image">
+
+                        <audio class="song_audio">
+                            <source src="./audio/뱅뱅뱅.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div class="song_info">
+                        <p>
+                            <strong>뱅뱅뱅</strong><br><br>
+                            인트로부터 많은 사람들을 일어나게 하는 곡. 처음부터 끝까지 떼창이 가능하고, 할 수 밖에 없는
+                            인기곡이다. 다같이 즐길 때만큼은 아무 생각 없이 하나가 되어 부른다.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="song_item">
+                    <div class="song_photo">
+                        <img src="./images/7.png" alt="Song 3 Image">
+
+                        <audio class="song_audio">
+                            <source src="./audio/거짓말.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div class="song_info">
+                        <p>
+                            <strong>거짓말</strong><br><br>
+                            발매된 지 18년이 넘어도 세련되고 음악 어플에서도 차트에 오를 만큼 여전히 많은 사람들이 찾는 노래.
+                            홧김에 상대를 잃어 후회하는 가사를 담고있다.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="song_item">
+                    <div class="song_photo">
+                        <img src="./images/8.png" alt="Song 4 Image">
+
+                        <audio class="song_audio">
+                            <source src="./audio/굿보이.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div class="song_info">
+                        <p>
+                            <strong>Good Boy (GD X TAEYANG)</strong><br><br>
+                            세련된 비트와 지디, 태양의 각 잡히고 절도 있는 안무가 매력적이다.
+                            텐션을 높이고 흥에 취하고 싶을 때 빼놓을 수 없는 노래이다.
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </div>
+    <script src="./dance.js"></script>
+</body>
+</html>
