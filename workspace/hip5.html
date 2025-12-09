@@ -20,11 +20,11 @@
         <div class="nav-content">
             <h1 class="nav-logo">NewSic</h1>
             <ul class="nav-menu">
-                <li><a href="index.html">홈</a></li>
-                <li><a href="#">J-POP</a></li>
-                <li><a href="#">Rock</a></li>
+                <li><a href="Home.html">홈</a></li>
+                <li><a href="Rock1.html">Rock</a></li>
+                <li><a href="J-POP 1.html">J-POP</a></li>
                 <li><a href="hip1.html" class="active">Hip Hop</a></li>
-                <li><a href="../dance.html">Dance</a></li>
+                <li><a href="dance1.html">Dance</a></li>
             </ul>
         </div>
     </nav>
@@ -44,7 +44,9 @@
                 <p>국적: 🇺🇸미국 캘리포니아 주 콤프턴<br>
                     출생: 1987년 6월 17일<br>
                     그룹: Black Hippy, 하이파워 크루<br>
-                    레이블:<a href="https://interscope.com/?srsltid=AfmBOorpCBZ6n0YrNs9ZF50sN4v3-SZPvulGPkwKjsLyhfmsrN5OSWn1" target="_blank">인터스코프 레코드</a>, 
+                    레이블:<a
+                        href="https://interscope.com/?srsltid=AfmBOorpCBZ6n0YrNs9ZF50sN4v3-SZPvulGPkwKjsLyhfmsrN5OSWn1"
+                        target="_blank">인터스코프 레코드</a>,
                     <a href="https://pg-lang.com/" target="_blank">pglang</a><br>
                     데뷔: 2003년
                 </p>
@@ -145,22 +147,22 @@
     <script>
         // 모든 노래 이미지 선택
         const songImages = document.querySelectorAll('.song_photo img');
-        
+
         // 현재 재생 중인 오디오를 담을 변수 (초기값은 없음)
         let currentAudio = null;
         // 현재 회전 중인 이미지를 담을 변수
         let currentImg = null;
 
         songImages.forEach(img => {
-            img.addEventListener('click', function() {
+            img.addEventListener('click', function () {
                 const src = this.getAttribute('src');
-                
+
                 const fileName = src.substring(src.lastIndexOf('/') + 1, src.lastIndexOf('.'));
 
                 if (currentAudio) {
                     currentAudio.pause(); // 노래 정지
                     currentAudio.currentTime = 0; // 노래 시작점으로
-                    if(currentImg) currentImg.classList.remove('spinning'); // 회전 클래스 제거
+                    if (currentImg) currentImg.classList.remove('spinning'); // 회전 클래스 제거
                 }
 
                 // (일시정지 기능)
@@ -174,10 +176,10 @@
                 // 경로: ./audio/파일명.mp3
                 // 주의: mp3 파일은 audio 폴더 안에 있어야 함
                 currentAudio = new Audio('./audio/' + fileName + '.mp3');
-                
+
                 // 노래 재생
                 currentAudio.play();
-                
+
                 // 이미지 회전 효과 시작
                 this.classList.add('spinning');
                 currentImg = this;

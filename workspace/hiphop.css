@@ -9,7 +9,8 @@ body {
     /* 입자가 body를 벗어나지 않도록 */
     position: relative;
     /*가상 요소의 기준점이 되도록 설정*/
-    padding-top: 200px; /*nav와 rcommand 사이 간격*/
+    padding-top: 200px;
+    /*nav와 rcommand 사이 간격*/
     box-sizing: border-box;
 }
 
@@ -483,4 +484,125 @@ body {
     transition: border-radius 0.5s ease;
     cursor: pointer;
     /* 마우스를 올리면 손가락 모양으로 변경 */
+}
+
+/* ===== 반응형 디자인 ===== */
+@media (max-width: 768px) {
+    .nav-content {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    body {
+        padding: 140px 15px 30px;
+    }
+
+    .recommand_page {
+        padding: 40px 25px;
+        width: 95%;
+    }
+
+    .main_title {
+        font-size: 3.5rem;
+    }
+
+    .artist_section {
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 30px;
+    }
+
+    .artist_photo {
+        width: 100%;
+        max-width: 350px;
+        height: 350px;
+    }
+
+    .artist_info h4 {
+        font-size: 2rem;
+    }
+
+    .artist_info p {
+        font-size: 1.2rem;
+    }
+
+    .songs_section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .other-artists-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-menu {
+        gap: 10px;
+    }
+
+    .nav-menu a {
+        font-size: 0.9rem;
+        padding: 5px 8px;
+    }
+
+    .main_title {
+        font-size: 2.5rem;
+    }
+
+    .recommand_page {
+        padding: 30px 20px;
+    }
+
+    .artist_photo {
+        height: 280px;
+    }
+
+    .artist_info h4 {
+        font-size: 1.6rem;
+    }
+
+    .artist_info p {
+        font-size: 1.1rem;
+    }
+
+    .song_item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .song_photo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .song_title {
+        font-size: 1.5rem;
+    }
+
+    .song_meta {
+        font-size: 1.3rem;
+        white-space: normal;
+    }
+
+    .song_desc {
+        font-size: 1.2rem;
+    }
+
+    .other-artist-name {
+        font-size: 1.2rem;
+    }
 }
