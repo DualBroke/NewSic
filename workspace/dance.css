@@ -180,6 +180,19 @@ body {
     z-index: 2;
     box-sizing: border-box;
     /* 패딩을 너비에 포함시켜 가로 스크롤 방지 */
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .main_title {
@@ -299,6 +312,20 @@ p {
 .song_info {
     flex-grow: 1;
     /*앨범 사진 제외 남은 공간 텍스트가 채우도록 함*/
+}
+
+/* 노래 제목 링크 스타일 */
+.song_info strong a {
+    text-decoration: none;
+    color: #2159ff;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.song_info strong a:hover {
+    color: #0039d6;
+    transform: translateY(-2px);
 }
 
 /* 앨범 회전 애니메이션 */

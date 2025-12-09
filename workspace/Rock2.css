@@ -9,19 +9,21 @@ body {
     font-family: 'Noto Sans KR', -apple-system, sans-serif;
     /* Rock2.css: 록 페스티벌 테마 배경 (다크 레드 그라데이션 및 이미지) */
     background-color: #1a0000;
-    background-image: 
+    background-image:
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url("https://images.unsplash.com/photo-1501612780327-45045538702b?w=1920&q=80");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    color: #fff; /* 기본 텍스트 색상 흰색 */
-    
+    color: #fff;
+    /* 기본 텍스트 색상 흰색 */
+
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 140px 20px 40px; /* 네비게이션바 고려하여 패딩 조정 */
+    padding: 140px 20px 40px;
+    /* 네비게이션바 고려하여 패딩 조정 */
     position: relative;
     overflow-x: hidden;
 }
@@ -34,8 +36,9 @@ body {
     width: 100%;
     height: 100%;
     /* 록 테마에 맞게 필터 조정 (블러는 유지하되 붉은 톤 추가) */
-    background-image: url("https://images.unsplash.com/photo-1501612780327-45045538702b?w=1920&q=80"); 
-    background-color: rgba(139, 0, 0, 0.3); /* 붉은색 오버레이 */
+    background-image: url("https://images.unsplash.com/photo-1501612780327-45045538702b?w=1920&q=80");
+    background-color: rgba(139, 0, 0, 0.3);
+    /* 붉은색 오버레이 */
     background-blend-mode: multiply;
     background-size: cover;
     background-position: center;
@@ -55,7 +58,8 @@ body {
     /* Rock2.css 톤을 유지하며 불투명도 조정 */
     background: rgba(30, 0, 0, 0.95);
     backdrop-filter: blur(10px);
-    border-bottom: 2px solid #cc3333; /* 붉은 테두리 */
+    border-bottom: 2px solid #cc3333;
+    /* 붉은 테두리 */
     box-shadow: 0 5px 20px rgba(255, 51, 51, 0.3);
     z-index: 100;
 }
@@ -72,7 +76,8 @@ body {
 .nav-logo {
     font-size: 1.8rem;
     font-weight: 900;
-    color: #ff6666; /* 붉은색 로고 */
+    color: #ff6666;
+    /* 붉은색 로고 */
     letter-spacing: 0.05em;
     text-decoration: none;
     text-shadow: 0 0 5px rgba(255, 102, 102, 0.5);
@@ -91,7 +96,8 @@ body {
 
 .nav-menu a {
     text-decoration: none;
-    color: #e0e0e0; /* 밝은 회색 텍스트 */
+    color: #e0e0e0;
+    /* 밝은 회색 텍스트 */
     font-weight: 600;
     font-size: 1rem;
     transition: all 0.2s ease;
@@ -110,13 +116,13 @@ body {
 .recommand_page {
     display: flex;
     flex-direction: column;
-    
+
     /* Rock2.css 스타일 */
-    background: rgba(30, 0, 0, 0.85); 
+    background: rgba(30, 0, 0, 0.85);
     backdrop-filter: blur(15px);
     border: 1px solid #cc3333;
-    box-shadow: 0 0 30px rgba(204, 51, 51, 0.5); 
-    
+    box-shadow: 0 0 30px rgba(204, 51, 51, 0.5);
+
     max-width: 1000px;
     width: 100%;
     border-radius: 15px;
@@ -124,6 +130,19 @@ body {
     margin: 0;
     position: relative;
     z-index: 2;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ===== 타이틀 영역 (title_area) - Rock2.css의 nav_btn 스타일 추가 ===== */
@@ -141,12 +160,12 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    
+
     text-decoration: none;
     font-size: 1rem;
     font-weight: bold;
     padding: 10px 20px;
-    
+
     /* 버튼 스타일: 록 테마 */
     background-color: rgba(80, 0, 0, 0.9);
     color: #ffe0e0;
@@ -163,21 +182,27 @@ body {
     border-color: #ff6666;
 }
 
-.left_btn { left: 0; }
-.right_btn { right: 0; }
+.left_btn {
+    left: 0;
+}
+
+.right_btn {
+    right: 0;
+}
 
 
 .main_title {
-    font-size: 3.5em; /* Rock2.css 크기로 조정 */
+    font-size: 3.5em;
+    /* Rock2.css 크기로 조정 */
     font-weight: 900;
     margin-top: 0;
     margin-bottom: 40px;
-    
+
     /* Rock2.css 텍스트 스타일 */
     color: #fff;
     font-style: italic;
-    text-shadow: 3px 3px 0 #8b0000, 0 0 25px #ff6666; 
-    
+    text-shadow: 3px 3px 0 #8b0000, 0 0 25px #ff6666;
+
     text-align: center;
     letter-spacing: 0.05em;
 }
@@ -200,9 +225,9 @@ body {
     height: 200px;
     flex-shrink: 0;
     overflow: hidden;
-    
+
     /* 록 테마 스타일 */
-    border-radius: 15px; 
+    border-radius: 15px;
     border: 3px solid #ff6666;
     box-shadow: 0 0 25px rgba(255, 102, 102, 0.6);
     transition: transform 0.3s ease;
@@ -226,14 +251,16 @@ body {
 
 .artist_info p {
     margin: 0;
-    color: #f0f0f0; /* Rock2.css 텍스트 색상 */
+    color: #f0f0f0;
+    /* Rock2.css 텍스트 색상 */
     line-height: 1.8;
 }
 
 .artist_info h4 {
     font-size: 2rem;
     margin-bottom: 15px;
-    color: #ff9999; /* 이름 색상 강조 */
+    color: #ff9999;
+    /* 이름 색상 강조 */
     text-shadow: 0 0 10px rgba(255, 153, 153, 0.5);
 }
 
@@ -244,14 +271,17 @@ body {
 .member_list {
     margin-top: 10px;
     padding-left: 20px;
-    list-style: disc; /* 멤버 목록 리스트 스타일 복원 */
+    list-style: disc;
+    /* 멤버 목록 리스트 스타일 복원 */
 }
 
 .member_list li {
-    width: 100%; /* 너비 조정 */
+    width: 100%;
+    /* 너비 조정 */
     max-width: 500px;
     margin-bottom: 8px;
-    color: #f0f0f0; /* Rock2.css 텍스트 색상 */
+    color: #f0f0f0;
+    /* Rock2.css 텍스트 색상 */
     line-height: 1.6;
 }
 
@@ -277,7 +307,7 @@ body {
     display: flex;
     gap: 15px;
     padding: 15px;
-    
+
     /* Rock2.css 스타일 */
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -297,10 +327,10 @@ body {
     overflow: hidden;
     flex-shrink: 0;
     border-radius: 50%;
-    
+
     /* Rock2.css 스타일 */
     border: 3px solid #555;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease;
 }
 
@@ -328,20 +358,23 @@ body {
 }
 
 .song-title-link {
-    color: #ff6666; /* Rock2.css 밝은 붉은색 */
+    color: #ff6666;
+    /* Rock2.css 밝은 붉은색 */
     text-decoration: none;
     font-weight: 700;
     transition: all 0.3s;
 }
 
 .song-title-link:hover {
-    color: #fff; /* 호버 시 흰색 발광 */
+    color: #fff;
+    /* 호버 시 흰색 발광 */
     text-shadow: 0 0 10px #ff6666;
 }
 
 .song_info p {
     margin: 0;
-    color: #dddddd; /* Rock2.css 텍스트 색상 */
+    color: #dddddd;
+    /* Rock2.css 텍스트 색상 */
     line-height: 1.6;
     font-size: 0.95rem;
 }
@@ -351,13 +384,15 @@ body {
 .other-artists-section {
     margin-top: 60px;
     padding-top: 40px;
-    border-top: 2px solid #8b0000; /* 록 테마 붉은 경계선 */
+    border-top: 2px solid #8b0000;
+    /* 록 테마 붉은 경계선 */
 }
 
 .section-title {
     font-size: 2rem;
     font-weight: 700;
-    color: #ff6666; /* 록 테마 색상 */
+    color: #ff6666;
+    /* 록 테마 색상 */
     text-align: center;
     margin-bottom: 30px;
     text-shadow: 0 0 10px rgba(255, 102, 102, 0.5);
@@ -371,8 +406,8 @@ body {
 
 .other-artist-card {
     /* 록 테마 스타일 */
-    background: rgba(255, 255, 255, 0.05); 
-    border: 2px solid #8b0000; 
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid #8b0000;
     border-radius: 15px;
     padding: 20px;
     display: flex;
@@ -395,14 +430,16 @@ body {
     height: 100px;
     object-fit: cover;
     border-radius: 50%;
-    border: 3px solid #cc3333; /* 록 테마 색상 */
+    border: 3px solid #cc3333;
+    /* 록 테마 색상 */
     transition: all 0.3s ease;
 }
 
 .other-artist-name {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #ff9999; /* 록 테마 색상 */
+    color: #ff9999;
+    /* 록 테마 색상 */
     text-align: center;
 }
 
@@ -499,16 +536,19 @@ body {
         transform: rotate(360deg);
     }
 }
+
 .artist_detail_table {
     margin: 40px auto 50px;
-    max-width: 650px; /* 테이블 너비 조정 */
+    max-width: 650px;
+    /* 테이블 너비 조정 */
     width: 100%;
 }
 
 .section-title-small {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #ff6666; /* 록 테마 붉은색 */
+    color: #ff6666;
+    /* 록 테마 붉은색 */
     text-align: center;
     margin-bottom: 25px;
     text-shadow: 0 0 10px rgba(255, 102, 102, 0.3);
@@ -519,14 +559,16 @@ body {
     width: 100%;
     border-collapse: collapse;
     margin: 0 auto;
-    background: rgba(0, 0, 0, 0.5); /* 어두운 배경 */
+    background: rgba(0, 0, 0, 0.5);
+    /* 어두운 배경 */
     border: 1px solid #8b0000;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 0 15px rgba(255, 51, 51, 0.3);
 }
 
-.info-table th, .info-table td {
+.info-table th,
+.info-table td {
     padding: 12px 20px;
     text-align: left;
     color: #f0f0f0;
@@ -535,16 +577,19 @@ body {
 
 .info-table th {
     width: 30%;
-    background-color: rgba(139, 0, 0, 0.6); /* 다크 레드 헤더 배경 */
+    background-color: rgba(139, 0, 0, 0.6);
+    /* 다크 레드 헤더 배경 */
     font-weight: 700;
     color: #ffe0e0;
 }
 
 .info-table td {
-    background-color: rgba(255, 255, 255, 0.05); /* 행 배경을 더 투명하게 */
+    background-color: rgba(255, 255, 255, 0.05);
+    /* 행 배경을 더 투명하게 */
 }
 
-.info-table tr:last-child th, .info-table tr:last-child td {
+.info-table tr:last-child th,
+.info-table tr:last-child td {
     border-bottom: none;
 }
 
