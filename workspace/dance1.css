@@ -1,0 +1,342 @@
+/* ===== Reset & Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', -apple-system, sans-serif;
+    background: linear-gradient(135deg, #ffeef8 0%, #7d9dff 50%, #7d9dff 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px 40px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ===== 블러 배경 이미지 (z-index: -2) ===== */
+.background-div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("./images/dance_background.png");
+    background-size: cover;
+    background-position: center;
+    filter: blur(1.5px);
+    z-index: -2;
+}
+
+/* ===== 휘날리는 컨페티 (z-index: 1) ===== */
+.falling-petals {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: linear-gradient(135deg, #fff311 0%, #ffeb15 50%, #fff980 100%);
+    opacity: 0.6;
+    animation: fall linear infinite;
+}
+
+/* 각 컨페티의 위치와 애니메이션 시간을 다르게 설정 */
+.petal:nth-child(1) {
+    left: 10%;
+    animation-duration: 8s;
+    animation-delay: 0s;
+}
+
+.petal:nth-child(2) {
+    left: 25%;
+    animation-duration: 10s;
+    animation-delay: 1s;
+}
+
+.petal:nth-child(3) {
+    left: 40%;
+    animation-duration: 12s;
+    animation-delay: 2s;
+}
+
+.petal:nth-child(4) {
+    left: 55%;
+    animation-duration: 9s;
+    animation-delay: 3s;
+}
+
+.petal:nth-child(5) {
+    left: 70%;
+    animation-duration: 11s;
+    animation-delay: 4s;
+}
+
+.petal:nth-child(6) {
+    left: 85%;
+    animation-duration: 10s;
+    animation-delay: 5s;
+}
+
+.petal:nth-child(7) {
+    left: 20%;
+    animation-duration: 13s;
+    animation-delay: 2.5s;
+}
+
+.petal:nth-child(8) {
+    left: 60%;
+    animation-duration: 9.5s;
+    animation-delay: 1.5s;
+}
+
+@keyframes fall {
+    0% {
+        top: -10%;
+        transform: translateX(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateX(20px) rotate(90deg);
+    }
+
+    50% {
+        transform: translateX(-20px) rotate(180deg);
+    }
+
+    75% {
+        transform: translateX(20px) rotate(270deg);
+    }
+
+    100% {
+        top: 110%;
+        transform: translateX(0) rotate(360deg);
+    }
+}
+
+/* ===== Navigation Bar (z-index: 100) ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #030ea7;
+    box-shadow: 0 2px 15px rgba(255, 105, 180, 0.1);
+    z-index: 100;
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2159ff;
+    letter-spacing: 0.05em;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #4a4a4a;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+    padding: 5px 10px;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #2159ff;
+}
+
+/* ===== 메인 컨테이너 (z-index: 2) ===== */
+.container {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    max-width: 900px;
+    width: 100%;
+    padding: 60px 50px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(255, 105, 180, 0.15);
+    position: relative;
+    opacity: 0.;
+    z-index: 2;
+}
+
+/* ===== 헤더 섹션 ===== */
+.header-section {
+    margin-bottom: 50px;
+}
+
+.genre-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #2159ff;
+    letter-spacing: 0.05em;
+}
+
+.genre-desc {
+    font-size: 1.05rem;
+    color: #4a4a4a;
+    line-height: 1.8;
+    white-space: pre-line;
+}
+
+/* ===== 아티스트 리스트 (2열 그리드) ===== */
+.artist-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+/* ===== 아티스트 카드 (박스 형태) ===== */
+.artist-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #7d9dff;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px #9ab3fc;
+}
+
+.artist-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px #fff9a5;
+    border-color: #7d9dff;
+}
+
+/* 아티스트 이미지 */
+.artist-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #7d9dff;
+    transition: transform 0.3s ease;
+}
+
+.artist-card:hover .artist-img {
+    transform: scale(1.05);
+    border-color: #2159ff;
+}
+
+/* 아티스트 정보 */
+.artist-info {
+    text-align: center;
+    width: 100%;
+}
+
+.artist-name {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 10px;
+    transition: color 0.2s ease;
+}
+
+.artist-name:hover {
+    color: #2159ff;
+}
+
+.artist-desc {
+    font-size: 0.9rem;
+    color: #6a6a6a;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ===== 반응형 디자인 ===== */
+@media (max-width: 768px) {
+    .nav-content {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    body {
+        padding: 140px 20px 40px;
+    }
+
+    .container {
+        padding: 40px 30px;
+    }
+
+    .genre-title {
+        font-size: 2.5rem;
+    }
+
+    .artist-list {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .artist-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-menu {
+        gap: 10px;
+    }
+
+    .nav-menu a {
+        font-size: 0.9rem;
+        padding: 5px 8px;
+    }
+
+    .genre-title {
+        font-size: 2rem;
+    }
+
+    .genre-desc {
+        font-size: 0.95rem;
+    }
+
+    .container {
+        padding: 30px 20px;
+    }
+}

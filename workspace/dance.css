@@ -1,0 +1,315 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow-y: auto;
+    padding: 100px 20px 40px;
+}
+
+/* ===== 블러 배경 이미지 (z-index: -2) ===== */
+.background-div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("./images/dance_background.png");
+    background-size: cover;
+    background-position: center;
+    filter: blur(1.5px);
+    z-index: -2;
+}
+
+/* ===== 휘날리는 컨페티 (z-index: 1) ===== */
+.falling-petals {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: linear-gradient(135deg, #fff311 0%, #ffeb15 50%, #fff980 100%);
+    opacity: 0.6;
+    animation: fall linear infinite;
+}
+
+/* 각 컨페티의 위치와 애니메이션 시간을 다르게 설정 */
+.petal:nth-child(1) {
+    left: 10%;
+    animation-duration: 8s;
+    animation-delay: 0s;
+}
+
+.petal:nth-child(2) {
+    left: 25%;
+    animation-duration: 10s;
+    animation-delay: 1s;
+}
+
+.petal:nth-child(3) {
+    left: 40%;
+    animation-duration: 12s;
+    animation-delay: 2s;
+}
+
+.petal:nth-child(4) {
+    left: 55%;
+    animation-duration: 9s;
+    animation-delay: 3s;
+}
+
+.petal:nth-child(5) {
+    left: 70%;
+    animation-duration: 11s;
+    animation-delay: 4s;
+}
+
+.petal:nth-child(6) {
+    left: 85%;
+    animation-duration: 10s;
+    animation-delay: 5s;
+}
+
+.petal:nth-child(7) {
+    left: 20%;
+    animation-duration: 13s;
+    animation-delay: 2.5s;
+}
+
+.petal:nth-child(8) {
+    left: 60%;
+    animation-duration: 9.5s;
+    animation-delay: 1.5s;
+}
+
+@keyframes fall {
+    0% {
+        top: -10%;
+        transform: translateX(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateX(20px) rotate(90deg);
+    }
+
+    50% {
+        transform: translateX(-20px) rotate(180deg);
+    }
+
+    75% {
+        transform: translateX(20px) rotate(270deg);
+    }
+
+    100% {
+        top: 110%;
+        transform: translateX(0) rotate(360deg);
+    }
+}
+
+/* ===== Navigation Bar (z-index: 100) ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #030ea7;
+    box-shadow: 0 2px 15px rgba(255, 105, 180, 0.1);
+    z-index: 100;
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2159ff;
+    letter-spacing: 0.05em;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #4a4a4a;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+    padding: 5px 10px;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #2159ff;
+}
+
+/* ===== 메인 컨테이너 (z-index: 2) ===== */
+.container {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    max-width: 900px;
+    width: 100%;
+    padding: 60px 50px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(255, 105, 180, 0.15);
+    position: relative;
+    opacity: 0.;
+    z-index: 2;
+    box-sizing: border-box; /* 패딩을 너비에 포함시켜 가로 스크롤 방지 */
+}
+
+.main_title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #2159ff;
+    letter-spacing: 0.05em;
+}
+
+p {
+    text-align: left;
+}
+
+/*전체 구조*/
+.recommand_page {
+    /*수직분할 (아티스트/곡)*/
+    display: flex;
+    flex-direction: column;
+}
+
+.artist_section {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    /*아티스트 사진, 텍스트 간격*/
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
+    /*recommand_page의 패딩과 중복 막음*/
+    margin-bottom: 40px;
+    /*songs_section과 띄우기*/
+}
+
+/*아티스트 사진 크기*/
+.artist_photo {
+    width: auto;
+    height: 200px;
+    flex-shrink: 0;
+    /*flex item 크기가 줄어들지 않도록 보호*/
+    overflow: hidden;
+    /* 이미지가 넘치는 부분 자르기 */
+}
+
+.artist_photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5%;
+}
+
+/*아티스트 소개*/
+.artist_info {
+    flex-grow: 1;
+    /*아티스트 사진 제외 남은 공간 텍스트가 채우도록 함*/
+}
+
+.artist_info h4,
+.artist_info p {
+    margin: 0;
+}
+
+.songs_section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /*2열*/
+    margin-top: 40px;
+    /*artist_section과 띄우기*/
+    column-gap: 15px;
+    /*열 간격*/
+    row-gap: 60px;
+    /*행 간격*/
+
+    margin-left: auto;
+    margin-right: auto;
+    /* ******************************************* */
+
+    /* 이 Grid의 최대 너비를 설정하여 중앙 정렬할 여백을 만듭니다. */
+    max-width: 800px;
+    width: 100%;
+}
+
+.song_item {
+    width: auto;
+    height: auto;
+    align-items: center;
+    flex-shrink: 0;
+    /*flex item 크기가 줄어들지 않도록 보호*/
+    overflow: visible;
+
+    display: flex;
+    gap: 15px;
+}
+
+.song_photo {
+    width: 100px;
+    /* 이미지 고정 크기 */
+    height: 100px;
+    overflow: hidden;
+    /* 이미지가 넘치는 부분 자르기 */
+    flex-shrink: 0;
+    /* 텍스트가 길어도 이미지 크기가 줄어들지 않도록 보호 */
+    border-radius: 50%;
+    /* LP판처럼 원형으로 만들려면 추가 */
+}
+
+.song_item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /* 텍스트가 길어져도 이미지가 작아지지 않도록 보호 */
+    flex-shrink: 0;
+}
+
+.song_info {
+    flex-grow: 1;
+    /*앨범 사진 제외 남은 공간 텍스트가 채우도록 함*/
+}
+
+/* 앨범 회전 애니메이션 */
+.song_photo.spinning {
+    animation: spin 12s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
