@@ -190,5 +190,54 @@
             </div>
         </section>
     </div>
+    <script>
+        // 모든 노래 이미지 선택
+        const songImages = document.querySelectorAll('.song_photo img');
+        
+        // 현재 재생 중인 오디오를 담을 변수 (초기값은 없음)
+        let currentAudio = null;
+        // 현재 회전 중인 이미지를 담을 변수
+        let currentImg = null;
+
+        songImages.forEach(img => {
+            img.addEventListener('click', function() {
+                const src = this.getAttribute('src');
+                
+                const fileName = src.substring(src.lastIndexOf('/') + 1, src.lastIndexOf('.'));
+
+                if (currentAudio) {
+                    currentAudio.pause(); // 노래 정지
+                    currentAudio.currentTime = 0; // 노래 시작점으로
+                    if(currentImg) currentImg.classList.remove('spinning'); // 회전 클래스 제거
+                }
+
+                // (일시정지 기능)
+                // 단순히 멈추기만 하고 함수 종료
+                if (currentImg === this) {
+                    currentImg = null;
+                    currentAudio = null;
+                    return;
+                }
+
+                // 경로: ./audio/파일명.mp3
+                // 주의: mp3 파일은 audio 폴더 안에 있어야 함
+                currentAudio = new Audio('./audio/' + fileName + '.mp3');
+                
+                // 노래 재생
+                currentAudio.play();
+                
+                // 이미지 회전 효과 시작
+                this.classList.add('spinning');
+                currentImg = this;
+
+                // 노래가 끝나면 자동으로 회전 멈추기
+                currentAudio.addEventListener('ended', () => {
+                    this.classList.remove('spinning');
+                    currentImg = null;
+                    currentAudio = null;
+                });
+            });
+        });
+    </script>
 </body>
 </html>
