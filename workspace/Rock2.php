@@ -13,8 +13,8 @@
                 <li><a href="Home.php">홈</a></li>
                 <li><a href="J-POP 1.php">J-POP</a></li>
                 <li><a href="Rock1.php" class="active">Rock</a></li>
-                <li><a href="hip1.html">Hip Hop</a></li>
-                <li><a href="dance1.html">Dance</a></li>
+                <li><a href="hip1.php">Hip Hop</a></li>
+                <li><a href="dance1.php">Dance</a></li>
             </ul>
         </div>
     </nav>
