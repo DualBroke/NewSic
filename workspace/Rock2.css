@@ -520,8 +520,7 @@ body {
 }
 
 /* ===== 앨범 회전 애니메이션 ===== */
-.song_photo.spinning {
-    /* Rock2.css 스타일 */
+.song_photo img.spinning {
     animation: spin 3s linear infinite;
     border-radius: 50%;
     box-shadow: 0 0 20px rgba(255, 102, 102, 0.8);
