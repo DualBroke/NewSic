@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>록 장르 소개</title>
+    <link rel="stylesheet" href="Rock1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-div"></div>
+
+    <div class="stage-lights">
+        <div class="beam beam-1"></div>
+        <div class="beam beam-2"></div>
+        <div class="beam beam-3"></div>
+    </div>
+
+    <div class="embers">
+        <div class="ember"></div>
+        <div class="ember"></div>
+        <div class="ember"></div>
+        <div class="ember"></div>
+        <div class="ember"></div>
+        <div class="ember"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <h1 class="nav-logo">NewSic</h1>
+            <ul class="nav-menu">
+                <li><a href="Home.php">홈</a></li>
+                <li><a href="Rock1.php" class="active">Rock</a></li>
+                <li><a href="J-POP 1.php">J-POP</a></li>
+                <li><a href="hip1.php">Hip Hop</a></li>
+                <li><a href="dance1.php">Dance</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header-section">
+            <div class="genre-title">ROCK</div>
+            <div class="genre-desc">
+                심장을 울리는 강렬한 밴드 사운드와 폭발적인 에너지.<br>
+                자유와 반항, 그리고 청춘의 뜨거움을 가장 솔직하게 표현하는 장르.<br>
+                <span class="highlight">지금, 록 페스티벌의 뜨거운 열기 속에 빠져보자!</span>
+            </div>
+        </div>
+
+        <div class="artist-list">
+
+            <div class="artist-card">
+                <img src="images/Nell.png" alt="넬 사진" class="artist-img">
+                <div class="artist-info">
+                    <a href="Rock2.php" class="artist-name">넬 (NELL)</a>
+                    <p class="artist-desc">공감되는 가사부터 화려한 테크닉까지<br>더할 나위 없는 록 밴드</p>
+                </div>
+            </div>
+
+            <div class="artist-card">
+                <img src="images/ThornApple.png" alt="쏜애플 사진" class="artist-img">
+                <div class="artist-info">
+                    <a href="Rock3.php" class="artist-name">쏜애플</a>
+                    <p class="artist-desc">날카로운 목소리와 미스터리한 노래의<br>조화가 어우러지는 록 밴드</p>
+                </div>
+            </div>
+
+            <div class="artist-card">
+                <img src="images/LeeSeungyoon.png" alt="이승윤 사진" class="artist-img">
+                <div class="artist-info">
+                    <a href="Rock4.php" class="artist-name">이승윤</a>
+                    <p class="artist-desc">장르를 규정할 수 없는 파격과 에너지, 깊이 있는 통찰을 노래하는 싱어송라이터.</p>
+                </div>
+            </div>
+
+            <div class="artist-card">
+                <img src="images/YB.png" alt="윤도현밴드 사진" class="artist-img">
+                <div class="artist-info">
+                    <a href="Rock5.php" class="artist-name">YB (윤도현밴드)</a>
+                    <p class="artist-desc">대한민국을 대표하는 국민 록 밴드. 파워풀한 사운드로 대중을 압도한다.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
